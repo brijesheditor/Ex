@@ -1,23 +1,27 @@
 from flask import Flask
 import multiprocessing
 import os
-import Extractor
+import subprocess
 
 app = Flask(__name__)
+bot_process = None
 
-# --- Flask route for UptimeRobot ---
+def run_bot():
+    # Bot ko waise hi run kar jaise normally "python -m Extractor" chalate ho
+    subprocess.call(["python", "-m", "Extractor"])
+
 @app.route("/")
 def home():
-    return "Bot running ✅"
-
-# --- Run bot in separate process ---
-def run_bot():
-    Extractor.main()
+    global bot_process
+    if bot_process is not None and bot_process.is_alive():
+        return "✅ Bot running"
+    else:
+        return "❌ Bot stopped"
 
 if __name__ == "__main__":
     # Start bot process
-    p = multiprocessing.Process(target=run_bot)
-    p.start()
+    bot_process = multiprocessing.Process(target=run_bot)
+    bot_process.start()
 
     # Start flask server
     port = int(os.environ.get("PORT", 10000))
