@@ -1,34 +1,13 @@
-from flask import Flask
-import multiprocessing
-import os
-import signal
-import Extractor
+FROM python:3.10.11-slim
+WORKDIR /app
 
-app = Flask(__name__)
-bot_process = None
+RUN apt-get update && apt-get install -y build-essential && rm -rf /var/lib/apt/lists/*
 
-# --- Run bot ---
-def run_bot():
-    Extractor.main()
+COPY requirements.txt .
+RUN pip install --upgrade pip
+RUN pip install --no-cache-dir -r requirements.txt
 
-# --- Flask route for UptimeRobot ---
-@app.route("/")
-def home():
-    global bot_process
-    if bot_process is not None and bot_process.is_alive():
-        return "✅ Bot running"
-    else:
-        return "❌ Bot stopped"
+COPY . .
 
-if __name__ == "__main__":
-    # Start bot process
-    bot_process = multiprocessing.Process(target=run_bot)
-    bot_process.start()
-
-    # Start flask server (UptimeRobot will ping this)
-    port = int(os.environ.get("PORT", 10000))
-    try:
-        app.run(host="0.0.0.0", port=port)
-    finally:
-        if bot_process is not None:
-            os.kill(bot_process.pid, signal.SIGTERM)
+# Bot run kare as main process
+CMD ["python", "-m", "Extractor"]
