@@ -795,7 +795,7 @@ def generate_html(file_name, videos, pdfs, others):
     <div class="container-fluid py-5 text-center">
         <h1 class="brand-title mb-4">
 <a href="https://t.me/GodxBots" style="text-decoration: none; color: inherit;">
-  <i class="fas fa-bolt"></i> GOD x UG <i class="fas fa-bolt"></i>
+  <i class="fas fa-bolt"></i> GOD x 𓍯ɈⵔƝ ⵢƝⵔᏔ <i class="fas fa-bolt"></i>
 </a>
 
                 </h1>
@@ -803,13 +803,13 @@ def generate_html(file_name, videos, pdfs, others):
         <p class="lead">
 <a href="https://t.me/GodxBots" style="text-decoration: none; color: inherit;">
   <span class="badge bg-primary me-2">
-    <i class="fas fa-robot"></i> Join @GodxBots
+    <i class="fas fa-robot"></i> Join @zhonsnowchatbbot
   </span>
 </a>
 
             <a href="http://t.me/GodxBOts" class="text-decoration-none">
                 <span class="badge bg-warning">
-                    <i class="fas fa-bolt"></i>UG 
+                    <i class="fas fa-bolt"></i>𓍯ɈⵔƝ ⵢƝⵔᏔ 
                 </span>
             </a>
         </p>
@@ -1218,7 +1218,7 @@ async def handle_txt2html(client: Client, message: Message):
         
         # Save HTML file with @GodxBots suffix
         base_name = os.path.splitext(file_name)[0]
-        html_file_name = f"{base_name}_@GodxBots.html"
+        html_file_name = f"{base_name}_𓍯ɈⵔƝ ⵢƝⵔᏔbot"
         html_file_path = os.path.join(os.path.dirname(file_path), html_file_name)
         
         with open(html_file_path, "w", encoding='utf-8') as f:
