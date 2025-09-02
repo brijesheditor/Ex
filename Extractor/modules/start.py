@@ -14,9 +14,9 @@ from config import OWNER_ID, CHANNEL_ID
 from Extractor.core import script
 from Extractor.core.func import subscribe, chk_user
 #from Extractor.modules.cdsfree import handle_cds_journey, handle_cds_callback, handle_batch_message
-from Extractor.modules.appex_v1 import api_v1
-from Extractor.modules.appex_v2 import appex_v2_txt
-from Extractor.modules.appex_v3 import appex_v5_txt
+#from Extractor.modules.appex_v1 import api_v1
+#from Extractor.modules.appex_v2 import appex_v2_txt
+#from Extractor.modules.appex_v3 import appex_v5_txt
 from Extractor.modules.appex_v4 import appex_v5_txt
 from Extractor.modules.classplus import classplus_txt
 from Extractor.modules.pw import pw_login
@@ -84,7 +84,7 @@ custom_button = [[
                   InlineKeyboardButton("❤️ Aᴘᴘx ❤️", callback_data="appxwp"),
                 ],[
                   InlineKeyboardButton("🎯 CʟᴀssPʟᴜs 🎯", callback_data="cpwp"),
-                  InlineKeyboardButton("🎓 CDS Jᴏᴜʀɴᴇʏ 🎓", callback_data="cds_journey_free")
+                 # InlineKeyboardButton("🎓 CDS Jᴏᴜʀɴᴇʏ 🎓", callback_data="cds_journey_free")
                 ],[
                   InlineKeyboardButton("𝐁 𝐀 𝐂 𝐊", callback_data="modes_")
                 ]]
@@ -113,7 +113,7 @@ button1 = [
                 ],
                 [
                     InlineKeyboardButton("⚠️ Vɪsɪᴏɴ Iᴀs", callback_data="vision_ias_"),
-                    InlineKeyboardButton("🧿 Rᴀɴᴋᴇʀs Gᴜʀᴜᴋᴜʟ", callback_data="rg_vikramjeet")
+                    InlineKeyboardButton("🧿 Rᴀɴᴋᴇʀs Gᴜʀᴜᴋᴜʟ", callback_data="maintainer_")
                 ],
                 [
                     InlineKeyboardButton("𝐁 𝐀 𝐂 𝐊", callback_data="modes_")
