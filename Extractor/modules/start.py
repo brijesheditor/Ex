@@ -294,7 +294,7 @@ async def start(_, message):
             "🚀 Initializing System...\n【□□□□□□□□□□□□】 0%",
             "🚀 Initializing System...\n【■■■■□□□□□□□□】 25%",
             "🚀 Initializing System...\n【■■■■■■■■□□□□】 50%",
-            "🚀 Initializing System...\n【■■■■■■■■■■■■】 75%",
+            "🚀 Initializing System...\n【■■■■■■■■■■■■】 100%",
         ]
 
         for frame in loading_frames:
