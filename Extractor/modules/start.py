@@ -50,6 +50,8 @@ import logging
 from Extractor.html_converter.bot import handle_txt2html, show_txt2html_help
 from bs4 import BeautifulSoup
 import base64
+import random
+
 
 thumb_path = "Extractor/thumbs/txt-5.jpg"
 THREADPOOL = ThreadPoolExecutor(max_workers=2000)
@@ -269,22 +271,29 @@ def photo():
 
     # Keeping the old code as comment for reference
 
+# Random emoji list
+EMOJIS = ["🔥", "✨", "🚀", "🌟", "💫", "⚡", "🎯", "🎉", "❤️", "💎"]
+
 @app.on_message(filters.command("start"))  # & filters.user(SUDO_USERS))
 async def start(_, message):
     join = await subscribe(_, message)
     if join == 1:
         return
     try:
+        # Random emoji select karo
+        emoji = random.choice(EMOJIS)
+
         await message.reply_photo(
             photo=photo(),
-            caption=script.START_TXT.format(message.from_user.mention),
+            caption=f"{emoji} " + script.START_TXT.format(message.from_user.mention),
             reply_markup=buttons
         )
     except Exception as e:
         print(f"Error in start command: {e}")
         # If photo fails, send message without photo
+        emoji = random.choice(EMOJIS)
         await message.reply_text(
-            script.START_TXT.format(message.from_user.mention),
+            f"{emoji} " + script.START_TXT.format(message.from_user.mention),
             reply_markup=buttons
         )
 
