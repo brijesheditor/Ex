@@ -305,7 +305,7 @@ async def start_cmd(_, message):
     except Exception as e:
         print(f"Init animation error: {e}")
 
-    # --- Alag alag block me messages ---
+    # --- Messages in blocks ---
     await message.reply_text(
         f"<blockquote>🌟 Welcome Dear {message.from_user.mention} !</blockquote>",
         parse_mode="html"
