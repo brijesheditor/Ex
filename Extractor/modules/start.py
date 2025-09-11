@@ -362,13 +362,25 @@ async def show_apps_for_letter(client, query):
         return
     
     keyboard, total_pages = create_app_keyboard(apps, page=0, letter=letter)
-    # Create header with total apps count and page info
-    text = f"📱 𝐀𝐩𝐩𝐬 𝐒𝐭𝐚𝐫𝐭𝐢𝐧𝐠 𝐖𝐢𝐭𝐡 '{letter}' ({len(apps)} apps)\n"
-    text += f"𝐏𝐚𝐠𝐞: 1/{total_pages}\n"
-    text += "═══════════════════"
+
+    # Stylish Header UI
+    text = (
+        "╔════════════════════╗\n"
+        f"   📱 **Apps Explorer**\n"
+        "╚════════════════════╝\n\n"
+        f"🔤 **Letter:** `{letter}`\n"
+        f"📦 **Total Apps:** `{len(apps)}`\n"
+        f"📖 **Page:** `1/{total_pages}`\n"
+        "━━━━━━━━━━━━━━━━━━━━━━━\n"
+        "👇 **Select an app below:**"
+    )
     
     try:
-        await query.message.edit_text(text, reply_markup=InlineKeyboardMarkup(keyboard))
+        await query.message.edit_text(
+            text,
+            reply_markup=InlineKeyboardMarkup(keyboard),
+            disable_web_page_preview=True
+        )
     except Exception as e:
         print(f"Error showing apps: {e}")
         await query.answer("Error displaying apps. Please try again.", show_alert=True)
@@ -387,12 +399,23 @@ async def handle_pagination(client, query):
             
         keyboard, total_pages = create_app_keyboard(apps, page, letter)
         
-        # Update header with new page number
-        text = f"📱 𝐀𝐩𝐩𝐬 𝐒𝐭𝐚𝐫𝐭𝐢𝐧𝐠 𝐖𝐢𝐭𝐡 '{letter}' ({len(apps)} apps)\n"
-        text += f"𝐏𝐚𝐠𝐞: {page + 1}/{total_pages}\n"
-        text += "═══════════════════"
+        # Stylish Header UI
+        text = (
+            "╔════════════════════╗\n"
+            f"   📱 **Apps Explorer**\n"
+            "╚════════════════════╝\n\n"
+            f"🔤 **Letter:** `{letter}`\n"
+            f"📦 **Total Apps:** `{len(apps)}`\n"
+            f"📖 **Page:** `{page + 1}/{total_pages}`\n"
+            "━━━━━━━━━━━━━━━━━━━━━━━\n"
+            "👇 **Select an app below:**"
+        )
         
-        await query.message.edit_text(text, reply_markup=InlineKeyboardMarkup(keyboard))
+        await query.message.edit_text(
+            text,
+            reply_markup=InlineKeyboardMarkup(keyboard),
+            disable_web_page_preview=True
+        )
     except Exception as e:
         print(f"Pagination error: {e}")
         await query.answer("Error in pagination. Please try again.", show_alert=True)
