@@ -185,30 +185,37 @@ async def career_will(app: Client, message: Message):
         if "*" in raw_text:
             email, password = raw_text.split("*")
             headers = {
-                "Host": "elearn.crwilladmin.com",
-                "appver": "107",
-                "apptype": "android",
-                "cwkey": "+HwN3zs4tPU0p8BpOG5ZlXIU6MaWQmnMHXMJLLFcJ5m4kWqLXGLpsp8+2ydtILXy",
-                "content-type": "application/json; charset=UTF-8",
-                "accept-encoding": "gzip",
-                "user-agent": "okhttp/5.0.0-alpha.2"
-            }
+                "Host": "wbspec.crwilladmin.com",
+                "accept": "application/json, text/plain, */*",
+                "appver": "1",
+                "apptype": "web",
+                "cwkey": "Qw4NwDs7nEZ6BukUATJqKMeJdzzVzS4xrTjN0zDjcuI=",
+                "content-type": "application/json",
+                "origin": "https://web.careerwill.com",
+                "user-agent": ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                               "AppleWebKit/537.36 (KHTML, like Gecko) "
+                               "Chrome/140.0.0.0 Safari/537.36")
+                }
+                               
             data = {
-                "deviceType": "android",
-                "password": password,
-                "deviceModel": "Xiaomi M2007J20CI",
-                "deviceVersion": "Q(Android 10.0)",
                 "email": email,
-                "deviceIMEI": "d57adbd8a7b8u9i9",
-                "deviceToken": "fake_device_token"
+                "password": password,
             }
 
-            login_url = "https://elearn.crwilladmin.com/api/v9/login-other"
+            login_url = "https://wbspec.crwilladmin.com/api/v1/login"
             response = requests.post(login_url, headers=headers, json=data)
-            token = response.json()["data"]["token"]
+            resp_json = response.json()
+            token = resp_json.get("data", {}).get("token")
+            user_id = resp_json.get("data", {}).get("user_id")
+
+            if not token:
+                await message.reply_text("❌ Login failed — server response:\n" + str(resp_json))
+                return 
+
             success_msg = (
                 "✅ <b>CareerWill Login Successful</b>\n\n"
-                f"🆔 <b>Credentials:</b> <code>{email}*{password}</code>"
+                f"🆔 <b>Credentials:</b> <code>{email}*{password}</code>\n"
+                f"🔑 <b>Token:</b> <code>{token[:60]}...</code>"y
             )
             await message.reply_text(success_msg)
         else:
