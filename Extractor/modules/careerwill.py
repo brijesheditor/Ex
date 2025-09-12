@@ -216,15 +216,15 @@ async def career_will(app: Client, message: Message):
 
         # Fetch Batches
         headers = {
-            "Host": "elearn.crwilladmin.com",
-            "appver": "107",
-            "apptype": "android",
-            "usertype": "2",
-            "token": token,
-            "cwkey": "+HwN3zs4tPU0p8BpOG5ZlXIU6MaWQmnMHXMJLLFcJ5m4kWqLXGLpsp8+2ydtILXy",
-            "content-type": "application/json; charset=UTF-8",
+            "Host": "wbspec.crwilladmin.com",
+            "accept": "application/json, text/plain, */*",
+            "content-type": "application/json",
+            "apptype": "web",
+            "appver": "1",
+            "cwkey": "qD931+RbpRM1cb6Gx3HfIwbg+VVOrIFn3+k0w/N2H/k=",
+            "origin": "https://web.careerwill.com",
             "accept-encoding": "gzip",
-            "user-agent": "okhttp/5.0.0-alpha.2"
+            "user-agent": "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Mobile Safari/537.36"
         }
 
         batch_url = "https://elearn.crwilladmin.com/api/v9/my-batch"
