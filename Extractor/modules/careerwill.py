@@ -11,6 +11,7 @@ from pyrogram.types import Message
 from config import CHANNEL_ID,THUMB_URL,BOT_TEXT
 from Extractor import app
 import textwrap
+from datetime import datetime
 
 
 requests = cloudscraper.create_scraper()
@@ -197,10 +198,16 @@ async def career_will(app: Client, message: Message):
                                "AppleWebKit/537.36 (KHTML, like Gecko) "
                                "Chrome/140.0.0.0 Safari/537.36")
                 }
-                               
+            
+            tz = pytz.timezone("Asia/Kolkata")
+            now = datetime.now(tz)
+            
             data = {
                 "email": email,
                 "password": password,
+                "deviceType": "web",
+                "deviceDateTime": now.isoformat(),
+                "timezone": "Asia/Kolkata"
             }
 
             login_url = "https://wbspec.crwilladmin.com/api/v1/login"
