@@ -4,26 +4,26 @@ from os import getenv
 
 
 # ------------------------------------------------
-API_ID = int(os.environ.get("API_ID", "25933223"))
+API_ID = int(os.environ.get("API_ID", "29115102"))
 # ------------------------------------------------
-API_HASH = os.environ.get("API_HASH","6ef5a426d85b7f01562a41e6416791d3")
+API_HASH = os.environ.get("API_HASH","1a331db2b00e9d2decaa9c7276449eb6")
 # ------------------------------------------------
-BOT_TOKEN = os.environ.get("BOT_TOKEN", "")
+BOT_TOKEN = os.environ.get("BOT_TOKEN", "7978834671:AAG2tDYiAexb6ifcB7Tup5-EkRYDnAOpfgE")
 # ------------------------------------------------
 BOT_USERNAME = os.environ.get("BOT_USERNAME", "ziddiextractorbot")
 BOT_TEXT = "UG Extractor"
 # ------------------------------------------------
-OWNER_ID = int(os.environ.get("OWNER_ID", ""))
+OWNER_ID = int(os.environ.get("OWNER_ID", "1224092270"))
 # ------------------------------------------------
 # //LOG CHANNEL ID 
-CHANNEL_ID = int(os.environ.get("CHANNEL_ID", "-1003014595955"))
+CHANNEL_ID = int(os.environ.get("CHANNEL_ID", "-1002067304488"))
 
 # //FORCE_CHANNEL_ID
 CHANNEL_ID2 = int(os.environ.get("CHANNEL_ID2", "-4835078374")) 
 # ------------------------------------------------
 MONGO_URL = os.environ.get("MONGO_URL", "mongodb+srv://ankush23:JYzSGlbjpFezDSWH@cluster0.ulzzd1m.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 # -----------------------------------------------
-PREMIUM_LOGS = int(os.environ.get("PREMIUM_LOGS", "-1003014595955"))
+PREMIUM_LOGS = int(os.environ.get("PREMIUM_LOGS", "-1002067304488"))
 # -----------------------------------------------
 join = '<a href="https://t.me/+5YKxm5AsEzpkZDI1">✳️ JOIN BACKUP</a>'
 # -----------------------------------------------
