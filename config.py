@@ -6,9 +6,9 @@ from os import getenv
 # ------------------------------------------------
 API_ID = int(os.environ.get("API_ID", "29115102"))
 # ------------------------------------------------
-API_HASH = os.environ.get("API_HASH","1a331db2b00e9d2decaa9c7276449eb6")
+API_HASH = os.environ.get("API_HASH","")
 # ------------------------------------------------
-BOT_TOKEN = os.environ.get("BOT_TOKEN", "7978834671:AAG2tDYiAexb6ifcB7Tup5-EkRYDnAOpfgE")
+BOT_TOKEN = os.environ.get("BOT_TOKEN", "")
 # ------------------------------------------------
 BOT_USERNAME = os.environ.get("BOT_USERNAME", "ziddiextractorbot")
 BOT_TEXT = "UG Extractor"
